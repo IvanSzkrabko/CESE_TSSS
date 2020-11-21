@@ -1,0 +1,8 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Caracter\IeC {\'\i }sticas de calidad}{3}{chapter.1}
+\contentsline {chapter}{\numberline {2}Determinaci\IeC {\'o}n de la importancia relativa}{4}{chapter.2}
+\contentsline {chapter}{\numberline {3}Caracter\IeC {\'\i }sticas de calidad seg\IeC {\'u}n niveles de prueba}{5}{chapter.3}
+\contentsline {chapter}{\numberline {4}Divisi\IeC {\'o}n del sistema en subsistemas}{6}{chapter.4}
+\contentsline {chapter}{\numberline {5}Importancia relativa de los subsistemas}{7}{chapter.5}
+\contentsline {chapter}{\numberline {6}Importancia de test por combinaciones de subsistema}{8}{chapter.6}
+\contentsline {chapter}{\numberline {7}Tecnicas de test aplicadas}{9}{chapter.7}

@@ -1,0 +1,159 @@
+\documentclass[]{scrreprt}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{underscore}
+\usepackage{multirow}
+\usepackage[table,xcdraw]{xcolor}
+\usepackage{adjustbox}
+\usepackage[bookmarks=true]{hyperref}
+\hypersetup{
+    bookmarks=false,    % show bookmarks bar?
+    pdftitle={Master Test Plan},    % title
+    pdfauthor={Ivan Szkrabko},                     % author
+    pdfsubject={TeX and LaTeX},                        % subject of the document
+    pdfkeywords={TeX, LaTeX}, % list of keywords
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=blue,       % color of internal links
+    citecolor=black,       % color of links to bibliography
+    filecolor=black,        % color of file links
+    urlcolor=purple,        % color of external links
+    linktoc=page            % only page is linked
+}
+\def\myversion{2.0 }
+\title{
+\flushleft
+\Huge{Master test plan}\\
+\vspace{1cm}
+para\\
+\vspace{1cm}
+Realidad aumentada para la optimización de procedimientos batch en la industria\\
+\vspace{1cm}
+\LARGE{Versión 1.0\\}
+\vspace{1cm}
+Realizado por Iván Szkrabko\\
+}
+\begin{document}
+\maketitle
+\tableofcontents
+\chapter{Características de calidad}
+Se enumeran las características de calidad más relevantes para el proyecto:
+
+\begin{itemize}
+	\item Funcionalidad
+	\\ El objetivo del proyecto es hacer una aplicación funcional para la operación de la planta.
+	\item Usabilidad
+	\\ La aplicación debe ser fácil de utilizar e intuitiva, esto es parte de los requerimientos.
+	\item Confiabilidad
+	\\ Es una característica importante para asegurar la validez de los datos que el operador es capaz de 				interpretar de los distintos elementos de la planta.
+\end{itemize}
+\chapter{Determinación de la importancia relativa}
+Se asignan las siguientes importancias a las características de calidad:
+\begin{itemize}
+	\item Funcionalidad: 40\%
+	\item Usabilidad:    30\%
+	\item Confiabilidad: 30\%
+\end{itemize}
+\chapter{Características de calidad según niveles de prueba}
+\begin{table}[h]
+\begin{tabular}{|l|c|c|c|}
+\hline
+& \multicolumn{1}{l|}{Funcionalidad} & \multicolumn{1}{l|}{Usabilidad} & \multicolumn{1}{l|}{Confiabilidad} \\ \hline
+Importancia Relativa (\%) & 40                                 & 30                              & 30                                 \\ \hline
+Test unitario             & ++                                 &   *                             & * \\ \hline
+Test de integracion de SW &   *                                &  *                              & ++                                 \\ \hline
+Test de sistema           & +                                  & ++                              & * \\ \hline
+\end{tabular}
+\end{table}
+
+Referencias:
+\begin{table}[h]
+\begin{tabular}{rl}
+\textbf{++} & :La característica de calidad es muy importante. \\
+\textbf{+}  & :La característica de calidad es relevante.      \\
+\textbf{*}  & :La característica de calidad es irrelevante.     
+\end{tabular}
+\end{table}
+
+\begin{itemize}
+	\item Funcionalidad/Test unitario (++)
+	\\ Los test unitarios se encargaran de validar las lógicas de navegación de la interfaz de usuario.
+	\item Confiabilidad/Test de integración de software (++)
+	\\ La comunicación de las distintas interfaces de software debe ser testeada para asegurar su confiabilidad
+	\item Usabilidad/Test de sistema (++)
+	\\ El sistema en su conjunto debe ser fácil de utilizar y consistente, se analizaran los tiempos de respuesta 		de las interfaces principalmente.
+	\item Funcionalidad/Test de sistema (+)
+	\\ El sistema en su conjunto debe ser funcional. 						
+\end{itemize}
+
+
+\chapter{División del sistema en subsistemas}
+El sistema se dividirá en subsistemas que pueden probarse por separado, estas subdivisiones coinciden con la arquitectura de la solución planteada. Cada subsistema cumple una funcionalidad especifica y debe garantizarse su funcionamiento así como las características de calidad establecidas. A continuación se muestra la subdivisión del sistema:
+\begin{itemize}
+	\item Interfaz usuario
+	\\Presentación de la interfaz visual al operador.
+	\item Servidor Local
+	\\Procesar input del usuario, generar comandos para el sistema de control.
+	\item Cliente OPC
+	\\Envía los comandos al sistema de control y recibe información del mismo.
+	\item Sistema control
+	\\Ejecuta los comandos validos y reporta las señales de los distintos elementos de control.
+\end{itemize}
+
+\chapter{Importancia relativa de los subsistemas}
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Subsistema}          & \multicolumn{1}{l|}{\textbf{Importancia Relativa(\%)}} \\ \hline
+\textbf{Interfaz de Usuario} & 20                                                 \\ \hline
+\textbf{Servidor Local}      & 20                                                 \\ \hline
+\textbf{Cliente OPC}         & 40                                                 \\ \hline
+\textbf{Sistema de control}  & 20                                                 \\ \hline
+\end{tabular}
+\end{table}
+
+\chapter{Importancia de test por combinaciones de subsistema}
+\begin{table}[h]
+\begin{adjustbox}{width=1.2\textwidth}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Subsistema}& \multicolumn{1}{l|}{\textbf{Importancia Relativa (\%)}} & \multicolumn{1}{l|}{\textbf{Interfaz de Usuario}} & \multicolumn{1}{l|}{\textbf{Servidor Local}} & \multicolumn{1}{l|}{\textbf{Cliente OPC}} & \multicolumn{1}{l|}{\textbf{Sistema de control}} \\ \hline
+\textbf{Importancia Relativa (\%)} & 100                                                     & 20                                                & 20                                           & 40                                        & 20                                               \\ \hline
+\textbf{Funcionalidad}             & 20                                                      & +                                                 & ++                                           & +                                         & ++                                               \\ \hline
+\textbf{Usabilidad}                & 20                                                      & ++                                                & *                                            & *                                         & *                                                \\ \hline
+\textbf{Confiabilidad}             & 40                                                      & +                                                 & +                                            & ++                                        & +                                                \\ \hline
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+Referencias:
+\begin{table}[h]
+\begin{tabular}{rl}
+\textbf{++} & :La característica de calidad es muy importante. \\
+\textbf{+}  & :La característica de calidad es relevante.      \\
+\textbf{*}  & :La característica de calidad es irrelevante.     
+\end{tabular}
+\end{table}
+
+\chapter{Tecnicas de test aplicadas}
+
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Subsistema}                 & \multicolumn{1}{l|}{\textbf{Interfaz de Usuario}} & \multicolumn{1}{l|}{\textbf{Servidor Local}} & \multicolumn{1}{l|}{\textbf{Cliente OPC}} & \multicolumn{1}{l|}{\textbf{Sistema de control}} \\ \hline
+\textbf{SST}   & +                                                 &                                              &                                           &                                                  \\ \hline
+\textbf{CTM} &                                                   & +                                            &                                           & +                                                \\ \hline
+\textbf{ECT} &                                                   &                                              & +                                         &                                                  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{rl}
+\textbf{SST} & :State transition testing. \\
+\textbf{CTM}  & :Classification-tree method.      \\
+\textbf{ECT}  & :Elementary comparison test.     
+\end{tabular}
+\end{table}
+
+\end{document}
