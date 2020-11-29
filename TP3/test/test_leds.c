@@ -75,9 +75,16 @@ void test_todos_apagados(void){
 }
 
 
-void test_consulta_estado(void){
+void test_consulta_estado_off(void){
     Leds_AllOn();    
     Leds_Off(3);
     TEST_ASSERT_EQUAL_HEX16(0,Leds_PinState(3));
+}
+
+
+void test_consulta_estado_on(void){
+    Leds_AllOff();    
+    Leds_On(3);
+    TEST_ASSERT_EQUAL_HEX16(1,Leds_PinState(3));
 }
 

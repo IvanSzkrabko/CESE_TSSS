@@ -38,7 +38,7 @@ static LedError_t RegistrarError;
     *direccion = LEDS_ALL_OFF;
   }
 
-   uint8_t Leds_PinState (uint8_t led){
-    uint8_t state = LedToMask(led) & *direccion;
+   _Bool Leds_PinState (uint8_t led){
+    _Bool state = LedToMask(led) & *direccion;
     return(state);
   }

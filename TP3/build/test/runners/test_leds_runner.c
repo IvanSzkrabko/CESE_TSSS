@@ -18,7 +18,8 @@ extern void test_prender_apagar_multiples(void);
 extern void test_prender_led_invalido(void);
 extern void test_todos_prendidos(void);
 extern void test_todos_apagados(void);
-extern void test_consulta_estado(void);
+extern void test_consulta_estado_off(void);
+extern void test_consulta_estado_on(void);
 
 
 /*=======Mock Management=====*/
@@ -91,7 +92,8 @@ int main(void)
   run_test(test_prender_led_invalido, "test_prender_led_invalido", 60);
   run_test(test_todos_prendidos, "test_todos_prendidos", 65);
   run_test(test_todos_apagados, "test_todos_apagados", 71);
-  run_test(test_consulta_estado, "test_consulta_estado", 78);
+  run_test(test_consulta_estado_off, "test_consulta_estado_off", 78);
+  run_test(test_consulta_estado_on, "test_consulta_estado_on", 85);
 
   return UnityEnd();
 }

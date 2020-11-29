@@ -163,7 +163,7 @@ void test_todos_apagados(void){
 
 
 
-void test_consulta_estado(void){
+void test_consulta_estado_off(void){
 
     Leds_AllOn();
 
@@ -174,5 +174,23 @@ void test_consulta_estado(void){
    ((void *)0)
 
    ), (UNITY_UINT)(81), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+
+
+void test_consulta_estado_on(void){
+
+    Leds_AllOff();
+
+    Leds_On(3);
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((1)), (UNITY_INT)(UNITY_INT16)((Leds_PinState(3))), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(88), UNITY_DISPLAY_STYLE_HEX16);
 
 }
