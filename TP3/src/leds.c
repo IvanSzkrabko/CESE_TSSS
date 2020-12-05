@@ -1,5 +1,6 @@
 #include "leds.h"
 
+#define cantidadLeds 16
 #define LEDS_ALL_OFF 0x0000
 #define LEDS_ALL_ON 0xFFFF
 
@@ -9,7 +10,7 @@ static LedError_t RegistrarError;
 
 
   uint16_t LedToMask (uint8_t led){
-      if (led>16){
+      if (led>cantidadLeds){
           RegistrarError();
           return 0;
       }

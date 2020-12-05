@@ -2,17 +2,6 @@
 #include "leds.h"
 #include "stdbool.h"
 
-/*
-TP3:
-Las pruebas deben ser pensadas como individuales
-prender todos de una vez
-apagar todos de una vez
-ver el estado 
-probar el 1 y el 16 con su estado
-
-TP4:
-generar 5 pruebas de codigo real
-*/
 
 uint16_t ledsVirtuales;
 bool error_informado = false;
@@ -76,14 +65,11 @@ void test_todos_apagados(void){
 
 
 void test_consulta_estado_off(void){
-    Leds_AllOn();    
-    Leds_Off(3);
     TEST_ASSERT_EQUAL_HEX16(0,Leds_PinState(3));
 }
 
 
 void test_consulta_estado_on(void){
-    Leds_AllOff();    
     Leds_On(3);
     TEST_ASSERT_EQUAL_HEX16(1,Leds_PinState(3));
 }

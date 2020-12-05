@@ -3,8 +3,6 @@
 #include "stdbool.h"
 #include "stdio.h"
 
-typedef void (*LedError_t)(void);
-
 #define blockedColor 100
 #define pendingColor 150
 #define doneColor 200
